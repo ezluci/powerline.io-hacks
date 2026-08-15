@@ -1,0 +1,76 @@
+#ezgui-info {
+   background-color: gray;
+   opacity: 0.5;
+   position: absolute;
+   z-index: 100;
+   left: 10vw;
+   top: 0;
+   width: 250px;
+   color: white;
+}
+
+#ezgui-main {
+   background-color: gray;
+   opacity: 0.5;
+   position: absolute;
+   z-index: 100;
+   right: 20vw;
+   top: 0;
+   width: 250px;
+   color: white;
+}
+
+.ezgui-title {
+   display: block;
+   margin: 0 auto;
+   padding: 2px 4px;
+   text-align: center;
+   font-weight: bold;
+   border: 3px solid black;
+   cursor: pointer;
+}
+
+#ezgui-info-title {
+   color: #000000;
+   background-color: #d600ab
+}
+
+#ezgui-main-title {
+   color: red;
+   background-color: #ffff00;
+}
+
+#ezgui-info-hacks > span {
+   display: block;
+   border: 1px dashed black;
+}
+
+.ezgui-button {
+   display: block;
+   cursor: pointer;
+   border: 1px dashed black;
+}
+
+.ezgui-button-off {
+   background-color: #3f3f3f;
+   color: white;
+}
+
+.ezgui-button-on {
+   background-color: #00ef00;
+   color: black;
+}
+
+.ezgui-varval {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding-left: 3px;
+   padding-right: 3px;
+}
+
+.ezgui-varval > input {
+   float: right;
+   vertical-align: center;
+   width: 20%;
+}

@@ -1,0 +1,1 @@
+tsc && node ./dist/ws-proxy.js $1

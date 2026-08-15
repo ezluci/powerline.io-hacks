@@ -1,0 +1,343 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta charset="utf-8" />
+    <meta name="keywords"
+        content="powerlineio, powerline, io, game, games, web game, html5, fun, flash, snake, line, lines, tron">
+    <meta name="description" content="powerline.io - Massive multiplayer online snake" />
+    <meta property="og:title" content="powerline.io" />
+    <meta property="og:description" content="powerline.io - Massive multiplayer online snake" />
+    <meta property="og:url" content="http://powerline.io/" />
+    <meta property="og:image" content="http://powerline.io/images/thumbnail.png" />
+    <meta property="og:image:type" content="image/png" />
+    <link id="favicon" rel="icon" type="image/png" href="images/favicon.png" />
+    <meta property="og:type" content="website" />
+
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer="defer" data-render="explicit"></script>
+
+    <script>(function (f, b) { if (!b.__SV) { var e, g, i, h; window.mixpanel = b; b._i = []; b.init = function (e, f, c) { function g(a, d) { var b = d.split("."); 2 == b.length && ((a = a[b[0]]), (d = b[1])); a[d] = function () { a.push([d].concat(Array.prototype.slice.call(arguments, 0))); }; } var a = b; "undefined" !== typeof c ? (a = b[c] = []) : (c = "mixpanel"); a.people = a.people || []; a.toString = function (a) { var d = "mixpanel"; "mixpanel" !== c && (d += "." + c); a || (d += " (stub)"); return d; }; a.people.toString = function () { return a.toString(1) + ".people (stub)"; }; i = "disable time_event track track_pageview track_links track_forms track_with_groups add_group set_group remove_group register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking start_batch_senders people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user people.remove".split(" "); for (h = 0; h < i.length; h++) g(a, i[h]); var j = "set set_once union unset remove delete".split(" "); a.get_group = function () { function b(c) { d[c] = function () { call2_args = arguments; call2 = [c].concat(Array.prototype.slice.call(call2_args, 0)); a.push([e, call2]); }; } for (var d = {}, e = ["get_group"].concat(Array.prototype.slice.call(arguments, 0)), c = 0; c < j.length; c++) b(j[c]); return d; }; b._i.push([e, f, c]); }; b.__SV = 1.2; e = f.createElement("script"); e.type = "text/javascript"; e.async = !0; e.src = "undefined" !== typeof MIXPANEL_CUSTOM_LIB_URL ? MIXPANEL_CUSTOM_LIB_URL : "file:" === f.location.protocol && "//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//) ? "https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js" : "//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js"; g = f.getElementsByTagName("script")[0]; g.parentNode.insertBefore(e, g); } })(document, window.mixpanel || []);</script>
+    <!-- <script async src="https://hb.vntsm.com/v4/live/vms/sites/powerline.io/index.js"></script> -->
+    <script>self.__VM = self.__VM || [];
+        self.__VM.push(function (admanager, scope) {
+            scope.Config.get('leaderboard').displayMany(['slot-1', 'slot-3']);
+            scope.Config.get('mpu').display('slot-2');
+        });</script>
+    <style>
+        #slot-1 {
+            display: none !important;
+        }
+
+        #slot-3 {
+            display: none !important;
+        }
+    </style>
+    <style id="dynamic-styles-slot-1">
+        @media screen and (min-width: 300px) {
+            #slot-1 {
+                display: block !important;
+            }
+        }
+    </style>
+    <style id="dynamic-styles-slot-3">
+        @media screen and (min-width: 300px) {
+            #slot-3 {
+                display: block !important;
+            }
+        }
+    </style>
+    <title>powerline.io!</title>
+    <script>window.startTime = +new Date();
+        window.didSendLoadingTime = false;</script>
+    
+    <script defer src="js/load/sniff.js"></script>
+    <script defer src="js/load/ezoo-tables.js"></script>
+    <script defer src="js/load/modules.js"></script>
+
+    <script defer src="js/pl/code-1.js"></script>
+    <script defer src="js/pl/EntityFood.js"></script>
+    <script defer src="js/pl/EntityPlayer.js"></script>
+    <script defer src="js/pl/code-2.js"></script>
+    <script defer src="js/pl/Camera.js"></script>
+    <script defer src="js/pl/code-3.js"></script>
+    <script defer src="js/pl/Network.js"></script>
+    <script defer src="js/pl/LobbyTutorial.js"></script>
+    <script defer src="js/pl/Hud.js"></script>
+    <script defer src="js/pl/Input.js"></script>
+    <script defer src="js/pl/code-4.js"></script>
+    <script defer src="js/pl/code-5.js"></script>
+
+    <script defer src="js/ezgui/utils.js"></script>
+    <script defer src="js/ezgui/mouse-input.js"></script>
+    <script defer src="js/ezgui/move-by-mouse.js"></script>
+    <script defer src="js/ezgui/loop-up-down.js"></script>
+    <script defer src="js/ezgui/border-edging.js"></script>
+    <script defer src="js/ezgui/follow-player.js"></script>
+    <script defer src="js/ezgui/ezgui.js"></script>
+    <link href="ezgui.css" rel="stylesheet">
+
+    <link href="main.bd8689b580282bc6625a.css" rel="stylesheet">
+</head>
+
+<body data-feedly-mini="yes"><canvas id="xcanvas"></canvas>
+    <div id="stats"></div>
+    <div id="overlay"
+        style="display:none; position: absolute; left: 0; right: 0; top: 0; bottom: 0; background-color: rgba(0,0,0,0.0); z-index: 2;">
+        <div id="mainDialog"
+            style="width:510px;height:215px;background-color:rgba(0,50,50,0.0);margin:10px auto;border-radius:15px;padding:5px 15px 5px 15px;position:absolute;top:17%;left:50%;transform-origin:top center;transform:translate(-50%,0%);-ms-transform:translate(-50%,0%);-ms-transform-origin:top center;-webkit-transform:translate(-50%,0%);-webkit-transform-origin:top center;">
+            <!-- <img src="images/logo.png"
+                style="position:absolute;top:-100%;left:50%;transform:translate(-50%,0%);-ms-transform:translate(-50%,0%);-webkit-transform:translate(-50%,0%);" /> -->
+            <div id="statsPanel" class="basic-text"
+                style="display:none; background-color: rgba(0, 40, 40, 0.6);border-radius:30px;">
+                <center>
+                    <div style="height:5px;"></div>
+                    <h4>
+                        <center>
+                            <div style="font-size:20px;">
+                                <div id="stat-title">KILLED BY<br>X</div>
+                            </div>
+                        </center>
+                    </h4>
+                    <div style="height:5px;"></div>
+                    <table style="width:400px;border-radius:30px;">
+                        <tr>
+                            <td>SCORE<br>
+                                <div id="stat-length">0</div>
+                            </td>
+                            <td>BEST SCORE<br>
+                                <div id="stat-blength">0</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>KILL STREAK<br>
+                                <div id="stat-ks">0</div>
+                            </td>
+                            <td>BEST KILL STREAK<br>
+                                <div id="stat-bks">0</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>TOP POSITION<br>
+                                <div id="stat-top">0</div>
+                            </td>
+                            <td>TIME ALIVE<br>
+                                <div id="stat-time">0s</div>
+                            </td>
+                        </tr>
+                    </table>
+                    <h4>
+                        <center>
+                            <div id="linkText" style="font-size:15px;">[ PRESS ENTER TO PLAY ]</div>
+                        </center>
+                    </h4>
+                    <div style="height:5px;"></div>
+                </center>
+            </div>
+            <div id="basePanel">
+                <div style="height:10px;"></div>
+                <div id="tips" class="basic-text"></div>
+                <div style="height:40px;"></div>
+                <form role="form">
+                    <div class="form-group">
+                        <div hidden id="topGui" style="height:100px;">
+                            <div id="nickInput" style="height:50px;">
+                                <center><input id="nick" class="form-control input-nick"
+                                        placeholder="Type a Nickname..." maxlength="15"
+                                        onkeydown="if (event.keyCode == 13){ clickPlay(document.getElementById('nick').value); return false;} return true;"
+                                        autofocus /></center>
+                                <div class="basic-text">
+                                    <h4>
+                                        <div id="linkText" style="font-size:15px;">[ PRESS ENTER TO PLAY ]</div>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="topGuiConnecting" class="basic-text" style="height:84px; transform: translateY(20%);">
+                            <h3>
+                                <center>Connecting...</center>
+                            </h3>
+                        </div>
+                        <div hidden id="entryturn"></div>
+                        <div hidden id="roomTimeout" style="height:30px;">
+                            <div class="basic-text">
+                                <h3>
+                                    <center>
+                                        <div id="linkText" style="font-size:30px;">KICKED FOR INACTIVITY</div>
+                                    </center>
+                                </h3>
+                            </div>
+                            <form role="form">
+                                <div class="form-group">
+                                    <center><button type="submit" id="reconnectButton"
+                                            onclick="setReconnect(); return false;" class="btn">
+                                            <div class="basic-text">RECONNECT</div>
+                                        </button></center>
+                                </div>
+                            </form>
+                        </div>
+                        <div hidden id="roomFailed" style="height:90px;">
+                            <div class="basic-text">
+                                <h4>
+                                    <center>
+                                        <div id="linkText" style="font-size:30px;">SERVER IS FULL!</div>
+                                    </center>
+                                </h4>
+                            </div>
+                            <form role="form">
+                                <div class="form-group">
+                                    <center><button type="submit" id="continueButton"
+                                            onclick="setContinue(); return false;" class="btn">
+                                            <div class="basic-text">CONTINUE</div>
+                                        </button></center>
+                                </div>
+                            </form>
+                        </div><br>
+                    </div>
+                </form>
+            </div>
+            <div id="slot-2" class="powerline_center_venatus" style="top:120%;"></div>
+        </div>
+        <div id="slot-1" class="powerline_leaderboard_venatus" style="top:0%;"></div>
+        <footer class="soundBox"><button type="submit" id="muteButton" onclick="toggleSound(); return false;"
+                class="btn-naked"><img id="soundImg" src="images/sound_on.png" /></button></footer>
+        <footer id="firstRightBox" class="rightBoxNews" style="width:165px;height:128px;line-height:1.2;">
+            <center>
+                <font style="font-weight:bold;font-size:12px;color:#00FFFF;">Updated: 28 Dec 2024</font>
+            </center>
+            <div style="line-height:50%;"></div>
+            <font style="font-size:11px;">• New network protocol<div style="line-height:1px;"></div>• Several bug fixes
+                <div style="line-height:1px;"></div>• I key toggles stats<div style="line-height:1px;"></div>• G key
+                toggles quality</font>
+            <div style="line-height:20%;"></div>
+            <div style="text-align:right;"><a href="more_info.html" target="_blank">
+                    <font class="basic-text2" style="font-weight:bold;font-size:10px;">TELL ME MORE</font>
+                </a></div>
+        </footer>
+        <footer hidden id="afterRightBox" class="rightBoxSmall"><a href="http://powerline.io/more_info"
+                target="_blank">
+                <font class="basic-text2" style="font-weight:bold;font-size:15px;">TELL ME MORE</font>
+            </a>
+            <font style="font-weight:bold;font-size:15px;"></font>
+        </footer>
+        <!-- <footer id="mobileBoxId" class="mobileBox" style="width:170px;height:176px;">
+            <div style="height:10px;"></div>
+            <center><img src="images/banner_mobile_text2.png" /></center>
+            <div style="line-height:10%;"><br></div>
+            <center><a href="https://itunes.apple.com/us/app/powerline-io/id1267397935?mt=8" target="_blank"><img
+                        src="images/badge_ios.png" /></a>
+                <div style="height:5px;"></div><a
+                    href="https://play.google.com/store/apps/details?id=com.profusionstudios.powerlineio"
+                    target="_blank"><img src="images/badge_android.png" /></a>
+            </center>
+        </footer> -->
+        <!-- <footer id="linksID" class="linkBox"><a href="https://twitter.com/AndredAlmeida"><img
+                    src="images/twitter.png"></a></footer> -->
+        <!-- <footer hidden id="copyLink" class="leftBox"><a href="javascript:copyRoomLink();">
+                <font class="basic-text2" style="font-weight:bold;font-size:15px;">COPY ROOM LINK</font>
+            </a>
+            <font style="font-weight:bold;font-size:15px;"></font>
+            <div id="friendsDiv"><img id="pfArrow" src="images/playfriendsarrow.png"
+                    style="position:absolute;top:80%;left:35%;transform:translate(0%,35%);-ms-transform:translate(0%,35%);-webkit-transform:translate(0%,35%);" />
+                <img id="pfText" src="images/playfriendstext.png"
+                    style="position:absolute;top:350%;left:5%;transform:translate(0%,5%);-ms-transform:translate(0%,5%);-webkit-transform:translate(0%,5%);" />
+            </div>
+        </footer> -->
+        <footer class="leftBottomBox">
+            <center><a href="javascript:toggleGraphics();">
+                    <font id="graphicsID" class="basic-text2" style="font-weight:bold;font-size:14px;">GRAPHICS: HIGH
+                    </font>
+                </a></center>
+        </footer>
+        <footer hidden id="copyLinkBox" class="leftBox">
+            <div style="line-height:50%;"><br></div>
+            <font style="font-weight:bold;font-size:15px;" class="basic-text2">SHARE THIS LINK WITH YOUR FRIENDS!</font>
+            <div style="line-height:50%;"><br></div>
+            <center>
+                <div id="linkInput" style="height:43px;width:90%;"><input id="roomlinkInput"
+                        class="linkInput form-control input-copylink" readonly="readonly" style="cursor: text;" /></div>
+            </center>
+            <div hidden id="safariTooltip"
+                style="width:160px;height:20px;background-color:rgba(0,0,0,0.6);margin:10px auto;border-radius:5px;padding:5px 15px 5px 15px;position:relative;top:0%;left:0%;transform-origin:top center;transform:translate(0%,0%);-ms-transform:translate(0%,0%);-ms-transform-origin:top center;-webkit-transform:translate(0%,-30%);">
+                <font style="position:relative;top:-5px;font-weight:bold;font-size:13px;color:#FFFFFF;">Press ⌘+C to
+                    Copy!</font>
+            </div><button id="copyButton" type="submit" onclick="setCopy(); return false;"
+                class="btn btn-copy btn-primary basic-text2">COPY</button>
+            <div style="line-height:50%;"><br></div>
+        </footer>
+    </div>
+    <div id="slot-3-wrapper"
+        style="position: fixed; height:30px; width: calc(728px + 36px); bottom: 5px; left: calc(50% - 18px); transform: translate(-50%, 0%); background: rgba(0,0,0,0.0); border-radius: 14px 14px 14px 14px; z-index: 9999; pointer-events: none;display: none;">
+        <button onclick="window.clickCloseAd();"
+            style="position: absolute; left: 2px; bottom: 1px; background: rgba(0,0,0,0.2); color: #777777; border: none; border-radius: 12px; width: 24px; height: 24px; line-height: 24px; text-align: center; cursor: pointer; box-shadow: 1px 1px 3px #000; z-index: 10000; pointer-events: auto;">X</button>
+    </div>
+    <div id="slot-3" class="powerline_leaderboard_venatus" style="bottom:0%;"></div>
+    <div hidden id="overlay2"
+        style="position: absolute; left: 0; right: 0; top: 0; bottom: 0; background-color: rgba(0,100,100,0.25); z-index: 2;">
+        <div
+            style="width:280px;height:180px;background-color:rgba(0,0,0,0.85);margin:10px auto;border-radius:15px;padding:5px 15px 5px 15px;position:absolute;top:35%;left:50%;transform-origin:top center;transform:translate(-50%,0%);-ms-transform:translate(-50%,0%);-ms-transform-origin:top center;-webkit-transform:translate(-50%,0%);-webkit-transform-origin:top center;">
+            <center>
+                <font face="Arial Black, Arial, sans-serif"
+                    style="position:relative;top:30px;font-weight:bold;font-size:28px;color:#00FFFF;text-shadow: #00FFFF 0 0 5px;">
+                    LINK COPIED!</font> <img id="copycheckimage" src="images/copycheck.png"
+                    style="position:relative;top:43px;" />
+            </center>
+        </div>
+    </div>
+    <!-- <script>(function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-103841451-1', 'auto');
+        ga('send', 'pageview');</script> -->
+    
+    <div id="ezgui">
+        <div id="ezgui-info">
+            <span id="ezgui-info-title" class="ezgui-title">EZGUI INFO</span>
+            <div id="ezgui-info-hacks">
+                <span>selected player: </span>
+                <span id="ezgui-selected-player">(null)</span>
+                <span id="ezgui-player-count">player count: </span>
+                <span id="ezgui-kt-bot-count">KT bot count: </span>
+            </div>
+        </div>
+
+        <div id="ezgui-main">
+            <span id="ezgui-main-title" class="ezgui-title">EZGUI MAIN</span>
+            <div id="ezgui-main-hacks">
+                <span id="ezgui-enable-zoom" class="ezgui-button ezgui-button-off">
+                    enable Zoom (CTRL Z)</span>
+                <span id="ezgui-switch-turn" class="ezgui-button ezgui-button-off">
+                    use alt. turn Mode (CTRL M)</span>
+                <span id="ezgui-move-mouse" class="ezgui-button ezgui-button-off">
+                    move with mouse (CTRL X)</span>
+                <span id="ezgui-talk-undefined" class="ezgui-button ezgui-button-off">
+                    send undefined talk: ]</span>
+                <span id="ezgui-border-edging" class="ezgui-button ezgui-button-off">
+                    border edging (CTRL B)</span>
+                <span id="ezgui-follow-player" class="ezgui-button ezgui-button-off">
+                    follow player (CTRL F)</span>
+                <span id="ezgui-loop-up-down" class="ezgui-button ezgui-button-off">
+                    loop up down (CTRL L)</span>
+                <span id="ezgui-fast-respawn" class="ezgui-button ezgui-button-off">
+                    fast respawn</span>
+                <span id="ezgui-select-player" class="ezgui-button ezgui-button-off">
+                    select player (CTRL S)</span>
+                <span id="ezgui-spectate" class="ezgui-button ezgui-button-off">
+                    spectate arena (CTRL 1)</span>
+                
+                <div id="ezgui-fakeinputdelay" class="ezgui-varval">
+                    <span>fakeInputDelay</span>
+                    <input>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
